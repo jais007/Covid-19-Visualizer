@@ -67,7 +67,7 @@ $(document).ready(function(){
      combinedData["apiRequest2"] = values[1];
      const data1=combinedData["apiRequest1"];
      const data2=combinedData["apiRequest2"];
-     console.table(data1);
+      console.table(data1);
       function getMinY1() {
         return data1.reduce((min, p) => p.confirmed < min ? p.confirmed : min, data1[0].confirmed);
       }
@@ -126,6 +126,7 @@ $(document).ready(function(){
          }
          let X1=getMinY2();
          let X2=getMaxY2();
+         console.log(data2);
         data2.forEach((marker)=> {
                         var pos = new google.maps.LatLng(marker.latitude,marker.longitude);
                         var content =marker.state + "<br> Confirmed: " +marker.confirmed 
@@ -171,114 +172,3 @@ $(document).ready(function(){
             return combinedData;
     });
 });
-
-function kmeans( arrayToProcess, Clusters )
-{
-
-  var Groups = new Array();
-  var Centroids = new Array();
-  var oldCentroids = new Array();
-  var changed = false;
-
-  // initialise group arrays
-  for( initGroups=0; initGroups < Clusters; initGroups++ )
-  {
-
-    Groups[initGroups] = new Array();
-
-  }  
-
-  // pick initial centroids
-
-  initialCentroids=Math.round( arrayToProcess.length/(Clusters+1) );  
-
-  for( i=0; i < Clusters; i++ )
-  {
-
-    Centroids[i]=arrayToProcess[ (initialCentroids*(i+1)) ];
-
-  }
-
-  do
-  {
-
-    for( j=0; j < Clusters; j++ )
-	{
-
-	  Groups[j] = [];
-
-	}
-
-    changed=false;
-
-	for( i=0; i < arrayToProcess.length; i++ )
-	{
-
-	  Distance=-1;
-	  oldDistance=-1
-
- 	  for( j=0; j < Clusters; j++ )
-	  {
-
-        distance = Math.abs( Centroids[j]-arrayToProcess[i] );	
-
-		if ( oldDistance==-1 )
-		{
-
-		   oldDistance = distance;
-		   newGroup = j;
-
-		}
-		else if ( distance <= oldDistance )
-		{
-
-		    newGroup=j;
-			oldDistance = distance;
-
-		}
-
-	  }	
-
-	  Groups[newGroup].push( arrayToProcess[i] );	  
-
-	}
-
-    oldCentroids=Centroids;
-
-    for ( j=0; j < Clusters; j++ )
-	{
-
-      total=0;
-	  newCentroid=0;
-
-	  for( i=0; i < Groups[j].length; i++ )
-	  {
-
-	    total+=Groups[j][i];
-
-	  } 
-
-	  newCentroid=total/Groups[newGroup].length;  
-
-	  Centroids[j]=newCentroid;
-
-	}
-
-    for( j=0; j < Clusters; j++ )
-	{
-
-	  if ( Centroids[j]!=oldCentroids[j] )
-	  {
-
-	    changed=true;
-
-	  }
-
-	}
-
-  }
-  while( changed==true );
-
-  return Groups;
-
-}

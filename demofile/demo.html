@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>test</h1>
+</body>
+<script>
+    const data={
+    "mUSVNdkjm1RJRzSwr4uL4h8E7Gf2" : {
+      "-M5f85WlCr95P40MyQS7" : {
+        "City" : "vns ",
+        "House_no" : "D12",
+        "Mobile" : "11255",
+        "Name" : "Kanchan",
+        "PIN" : "221005",
+        "State" : "up"
+      },
+      "-M5f8gX7Yz-dS2K7tI8z" : {
+        "City" : "Delhi",
+        "House_no" : "D 15-32",
+        "Mobile" : "99999999",
+        "Name" : "Abhishek",
+        "PIN" : "110001",
+        "State" : "New Delhi"
+      }
+    }
+  }
+  function show(){
+console.table(data);
+  var myData = Object.keys(data).map(key => {
+    return data[key];
+  })
+  console.table(myData[0]);
+}
+
+</script>
+</html>

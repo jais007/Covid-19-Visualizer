@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Covid-19</title>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+    
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">     
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css"> 
+        <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css"> 
+        <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+           <a class="navbar-brand" href="#">COVID-19 Visualizer</a>
+           <div class="collapse navbar-collapse" id="Navbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="./map.html"><span class="fa fa-map-marker" aria-hidden="true"></span> MapView</a></li>
+                <!-- <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-map-marker" aria-hidden="true"></span> Map View</a></li> -->
+            </ul>   
+            </div>
+                         
+        </div>
+    </nav>
+    <div class="container">
+            <div class="row row-content">
+            <div class="col-12 col-sm-4 col-md-6">
+                <h2>Enter you State Code
+                </h2>
+                <h6>eg. For Tamil Nadu enter "IN TN"</h6>
+                <h6>eg. For Uttar Pradesh enter "IN UP"</h6>
+                <form>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="countryname"  placeholder="Enter Country Name">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="update(countryname.value)">Search</button>
+                </form>
+            </div>
+            <div class="col col-sm col-md" id="new" style = "display: none;">
+                <center>
+                  <center><h4>State </h4><p id="name" class="textdec" style="color:#1aa4e3"></p></center></td>
+                  <table cellspacing="80">
+                    <tr>
+                      <td>
+                        <table style="border-collapse: collapse; border: 1px solid black">
+                          <col width="50">
+                          <col width="150">
+                          <tr>
+                            <td height="110px" width="200px">
+                            <center><h4>Confirmed </h4>
+                              <p id="newconfirm" class="textsmall" style="color:red">
+                                <span style="color: red;">
+                                  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+                                </span>
+                              </p>
+                              <p id="confirm" class="textdec" style="color:#ccd3c9"></p></center></td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td>
+                        <table style="border-collapse: collapse; border: 1px solid black">
+                          <col width="50">
+                          <col width="150">
+                          <tr>
+                            <td height="110px" width="200px">
+                            <center><h4>Death</h4>
+                              
+                              <p id="newdeath" class="textsmall" style="color:red">
+                                <span style="color: red;">
+                                  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                                </span>
+                              </p>
+                              <p id="death" class="textdec" style="color:#8a8e88"></p></center></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <table style="border-collapse: collapse; border: 1px solid black">
+                          <col width="50">
+                          <col width="150">
+                          <tr>
+                            <td height="110px" width="200px">
+                            <center><h4>Actice</h4>
+                              <p id="active" class="textdec" style="color:#f22024"></p></center></td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td>
+                        <table style="border-collapse: collapse; border: 1px solid black">
+                          <col width="50">
+                          <col width="150">
+                          <tr>
+                            <td height="110px" width="200px"><center><h4>Recovered</h4>
+                            <p id="recovered" class="textdec" style="color:#42c614"></p></center></td>
+                          </tr>
+                        </table>
+                      </td>
+                     
+                    </tr>
+                  </table>
+                  </center>
+            </div>
+        </div>
+
+    </div>   
+</body>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDW7O-cGee8cm-Ul__tRm1kJ_1S6Rc7LKQ&callback=myOptions"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+<!-- <script src="statewise.js"></script> -->
+</html>
